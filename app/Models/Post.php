@@ -39,4 +39,23 @@ class Post extends Model implements HasMedia
     {
         $this->addMediaCollection('featured_image')->singleFile();
     }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Post $post) {
+            // Auto-calculate read time if left blank
+            if (empty($post->read_time)) {
+                $words = str_word_count(strip_tags($post->body));
+                $minutes = max(1, (int) ceil($words / 200));
+                $post->read_time = "{$minutes} min read";
+            }
+
+            // Enforce only one featured post at a time
+            if ($post->is_featured) {
+                static::where('id', '!=', $post->id)
+                    ->where('is_featured', true)
+                    ->update(['is_featured' => false]);
+            }
+        });
+    }
 }

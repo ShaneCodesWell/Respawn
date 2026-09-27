@@ -2,7 +2,9 @@
 
 namespace App\Enums;
 
-enum VideoCategory: string
+use Filament\Support\Contracts\HasLabel;
+
+enum VideoCategory: string implements HasLabel
 {
     case LetsPlay = 'letsplay';
     case Review = 'review';
@@ -10,7 +12,7 @@ enum VideoCategory: string
     case Guide = 'guide';
     case BlindRetrospective = 'blind_retrospective';
 
-    public function label(): string
+    public function getLabel(): string
     {
         return match ($this) {
             self::LetsPlay => "Let's Play",

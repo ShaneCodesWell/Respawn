@@ -1,4 +1,7 @@
 <x-layouts.app>
+    @push('styles')
+        @vite('resources/css/work-with-me.css')
+    @endpush
     <!-- ================= PAGE HEAD ================= -->
     <section class="page-head">
         <div class="container">

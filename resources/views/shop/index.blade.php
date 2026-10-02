@@ -1,4 +1,7 @@
 <x-layouts.app>
+    @push('styles')
+        @vite('resources/css/shop.css')
+    @endpush
 
     <!-- ================= PAGE HEAD ================= -->
     <section class="page-head">

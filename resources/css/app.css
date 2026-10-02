@@ -1,11 +1,4 @@
 @import "tailwindcss";
-@import "/resources/css/about.css";
-@import "/resources/css/blog.css";
-@import "/resources/css/home.css";
-@import "/resources/css/prose.css";
-@import "/resources/css/shop.css";
-@import "/resources/css/shorts.css";
-@import "/resources/css/work-with-me.css";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

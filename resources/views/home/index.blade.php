@@ -1,4 +1,7 @@
 <x-layouts.app>
+    @push('styles')
+        @vite('resources/css/home.css')
+    @endpush
     <!-- ================= FULL-BLEED HERO ================= -->
     <section class="hero" id="home">
         <h1 class="sr-only">Respawn Forever — gaming videos, shorts and stories</h1>

@@ -1,4 +1,7 @@
 <x-layouts.app>
+    @push('styles')
+        @vite('resources/css/shorts.css')
+    @endpush
     <!-- ================= PAGE HEAD ================= -->
     <section class="page-head">
         <div class="container">

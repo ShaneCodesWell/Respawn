@@ -8,19 +8,14 @@
     <title>Respawn Forever | Shane Forever Gaming</title>
     <meta name="description"
         content="Gameplay videos, shorts, blogs and custom work from Respawn Forever. Watch on YouTube." />
-    <!-- Set theme before paint to avoid flash -->
     <script>
         (function() {
             try {
-                var saved = localStorage.getItem("rf-theme");
-                var theme =
-                    saved ||
-                    (window.matchMedia("(prefers-color-scheme: dark)").matches ?
-                        "dark" :
-                        "light");
-                document.documentElement.setAttribute("data-theme", theme);
+                var saved = localStorage.getItem('rf-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
             } catch (e) {
-                document.documentElement.setAttribute("data-theme", "light");
+                document.documentElement.setAttribute('data-theme', 'light');
             }
         })();
     </script>

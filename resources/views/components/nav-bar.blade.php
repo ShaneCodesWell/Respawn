@@ -1,6 +1,6 @@
 <header class="nav" id="nav">
     <div class="nav__inner">
-        <a href="#home" class="brand" aria-label="Respawn Forever — home">
+        <a href="{{ route('home.index') }}" class="brand" aria-label="Respawn Forever — home">
             <span class="brand__mark">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1" />
@@ -9,18 +9,18 @@
             </span>
             <span class="brand__text">
                 <span class="brand__name">Respawn Forever</span>
-                <span class="brand__sub">Shane Forever · Gaming Channel</span>
+                <span class="brand__sub">Play · Watch · Repeat</span>
             </span>
         </a>
 
         <nav>
             <ul class="nav__menu" id="navMenu">
-                <li><a class="nav__link" href="#home">Home</a></li>
-                <li><a class="nav__link" href="#videos">Videos</a></li>
-                <li><a class="nav__link" href="#shorts">Shorts</a></li>
-                <li><a class="nav__link" href="#blog">Journal</a></li>
-                <li><a class="nav__link" href="#store">Shop</a></li>
-                <li><a class="nav__link" href="#hire">Work With Me</a></li>
+                <li><a class="nav__link" href="{{ route('home.index') }}">Home</a></li>
+                <li><a class="nav__link" href="{{ route('videos.index') }}">Videos</a></li>
+                <li><a class="nav__link" href="{{ route('shorts.index') }}">Shorts</a></li>
+                <li><a class="nav__link" href="{{ route('blog.index') }}">Journal</a></li>
+                <li><a class="nav__link" href="{{ route('shop.index') }}">Shop</a></li>
+                <li><a class="nav__link" href="{{ route('work-with-me.index') }}">Work With Me</a></li>
                 <li class="nav__cta">
                     <a class="btn btn--primary btn--sm" href="#" data-yt>Subscribe</a>
                 </li>

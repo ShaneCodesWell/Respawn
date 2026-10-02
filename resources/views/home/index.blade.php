@@ -1,83 +1,67 @@
 <x-layouts.app>
     <!-- ================= FULL-BLEED HERO ================= -->
     <section class="hero" id="home">
-        <h1 class="sr-only">
-            Respawn Forever — gaming videos, shorts and stories
-        </h1>
+        <h1 class="sr-only">Respawn Forever — gaming videos, shorts and stories</h1>
 
         <div class="carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Featured">
             <div class="carousel__viewport">
                 <div class="carousel__track" id="heroTrack">
-                    <!-- SLIDE 1 -->
+
                     <article class="slide" data-slide>
-                        <img src="Images/Jason_and_Lucia_03.jpg" alt="Jason and Lucia GTA VI" />
+                        <img src="https://picsum.photos/seed/respawn-hero-1/2400/1400"
+                            alt="Wide landscape at golden hour">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">
                             <div class="slide__inner">
-                                <p class="slide__eyebrow">
-                                    <i></i> New video · every Friday
-                                </p>
-                                <h2 class="hero__title">
-                                    Some worlds you never <em>really</em> leave.
-                                </h2>
-                                <p class="slide__sub">
-                                    Long-form gameplay, honest reviews and the kind of
-                                    sessions that run until the sun comes up. Pull up a chair.
-                                </p>
+                                <p class="slide__eyebrow"><i></i> New video · every Friday</p>
+                                <h2 class="hero__title">Some worlds you never <em>really</em> leave.</h2>
+                                <p class="slide__sub">Long-form gameplay, honest reviews and the kind of sessions
+                                    that run until the sun comes up. Pull up a chair.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="#videos">Watch the latest</a>
+                                    <a class="btn btn--light" href="videos.html">Watch the latest</a>
                                     <a class="btn btn--outline-light" href="#" data-yt>YouTube channel</a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- SLIDE 2 -->
                     <article class="slide" data-slide>
-                        <img src="Images/Jason_and_Lucia_10.jpg" alt="Jason and Lucia GTA VI at a party" />
+                        <img src="https://picsum.photos/seed/respawn-hero-2/2400/1400" alt="Misty forest at dawn">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">
                             <div class="slide__inner">
                                 <p class="slide__eyebrow"><i></i> Shorts · daily drops</p>
-                                <h2 class="hero__title">
-                                    Sixty seconds of <em>pure</em> chaos.
-                                </h2>
-                                <p class="slide__sub">
-                                    Quick clips, funny moments and clutch plays. New shorts
-                                    land every single day — perfect with a coffee.
-                                </p>
+                                <h2 class="hero__title">Sixty seconds of <em>pure</em> chaos.</h2>
+                                <p class="slide__sub">Quick clips, funny moments and clutch plays. New shorts land
+                                    every single day — perfect with a coffee.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="#shorts">Browse shorts</a>
-                                    <a class="btn btn--outline-light" href="#hire">Request a clip</a>
+                                    <a class="btn btn--light" href="shorts.html">Browse shorts</a>
+                                    <a class="btn btn--outline-light" href="work-with-me.html">Request a clip</a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- SLIDE 3 -->
                     <article class="slide" data-slide>
-                        <img src="Images/Vice_City_09.jpg" alt="Vice City streets during the day" />
+                        <img src="https://picsum.photos/seed/respawn-hero-3/2400/1400" alt="City skyline at night">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">
                             <div class="slide__inner">
                                 <p class="slide__eyebrow"><i></i> Commissions · open now</p>
-                                <h2 class="hero__title">
-                                    Let's build something <em>worth</em> watching.
-                                </h2>
-                                <p class="slide__sub">
-                                    Editing, thumbnails, sponsorships or a custom gameplay
-                                    request — send the brief and I'll reply within 48 hours.
-                                </p>
+                                <h2 class="hero__title">Let's build something <em>worth</em> watching.</h2>
+                                <p class="slide__sub">Editing, thumbnails, sponsorships or a custom gameplay
+                                    request — send the brief and I'll reply within 48 hours.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="#hire">Start a request</a>
-                                    <a class="btn btn--outline-light" href="#store">Visit the shop</a>
+                                    <a class="btn btn--light" href="work-with-me.html">Start a request</a>
+                                    <a class="btn btn--outline-light" href="shop.html">Visit the shop</a>
                                 </div>
                             </div>
                         </div>
                     </article>
+
                 </div>
             </div>
 
@@ -113,16 +97,14 @@
                 <span class="ticker__item"><i class="ticker__dot"></i>Shorts <b>daily</b></span>
                 <span class="ticker__item"><i class="ticker__dot"></i>Commissions <b>open</b></span>
                 <span class="ticker__item"><i class="ticker__dot"></i>Merch <b>drop 004 live</b></span>
-                <span class="ticker__item"><i class="ticker__dot"></i>Business
-                    <b>inquiries welcome</b></span>
+                <span class="ticker__item"><i class="ticker__dot"></i>Business <b>inquiries welcome</b></span>
             </div>
             <div class="ticker__group">
                 <span class="ticker__item"><i class="ticker__dot"></i>New video <b>every Friday</b></span>
                 <span class="ticker__item"><i class="ticker__dot"></i>Shorts <b>daily</b></span>
                 <span class="ticker__item"><i class="ticker__dot"></i>Commissions <b>open</b></span>
                 <span class="ticker__item"><i class="ticker__dot"></i>Merch <b>drop 004 live</b></span>
-                <span class="ticker__item"><i class="ticker__dot"></i>Business
-                    <b>inquiries welcome</b></span>
+                <span class="ticker__item"><i class="ticker__dot"></i>Business <b>inquiries welcome</b></span>
             </div>
         </div>
     </div>
@@ -134,12 +116,10 @@
                 <div>
                     <p class="eyebrow">Latest uploads</p>
                     <h2 class="sec-title">Fresh from the <em>channel</em></h2>
-                    <p class="sec-desc">
-                        Long-form gameplay, reviews and deep dives. Tap any card to
-                        watch it right here.
-                    </p>
+                    <p class="sec-desc">Long-form gameplay, reviews and deep dives. Tap any card to watch it right
+                        here.</p>
                 </div>
-                <a class="link-arrow" href="#" data-yt>
+                <a class="link-arrow" href="videos.html">
                     All videos on YouTube
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -156,7 +136,7 @@
                 <button class="chip" data-filter="guide">Guides</button>
             </div>
 
-            <div class="vgrid" id="videoGrid"><!-- injected --></div>
+            <div class="vgrid" id="videoGrid" data-limit="6"></div>
         </div>
     </section>
 
@@ -167,12 +147,10 @@
                 <div>
                     <p class="eyebrow">Quick hits</p>
                     <h2 class="sec-title">Shorts &amp; <em>clips</em></h2>
-                    <p class="sec-desc">
-                        A minute or less. Slide through with the arrows, or swipe on
-                        mobile. Tap any card to play.
-                    </p>
+                    <p class="sec-desc">A minute or less. Slide through with the arrows, or swipe on mobile. Tap
+                        any card to play.</p>
                 </div>
-                <a class="link-arrow" href="#" data-yt>
+                <a class="link-arrow" href="shorts.html">
                     More shorts
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -205,15 +183,10 @@
             <div class="sec-head reveal">
                 <div>
                     <p class="eyebrow">The journal</p>
-                    <h2 class="sec-title">
-                        Notes, thoughts &amp; <em>patch talk</em>
-                    </h2>
-                    <p class="sec-desc">
-                        The stories behind the videos — and the opinions nobody asked
-                        for.
-                    </p>
+                    <h2 class="sec-title">Notes, thoughts &amp; <em>patch talk</em></h2>
+                    <p class="sec-desc">The stories behind the videos — and the opinions nobody asked for.</p>
                 </div>
-                <a class="link-arrow" href="#">
+                <a class="link-arrow" href="blog.html">
                     All articles
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -222,7 +195,7 @@
                 </a>
             </div>
 
-            <div class="bgrid" id="blogGrid"><!-- injected --></div>
+            <div class="bgrid" id="blogGrid"></div>
         </div>
     </section>
 
@@ -233,11 +206,9 @@
                 <div>
                     <p class="eyebrow">The shop</p>
                     <h2 class="sec-title">Merch &amp; <em>digital goods</em></h2>
-                    <p class="sec-desc">
-                        Things I actually use, wear, and ship out myself.
-                    </p>
+                    <p class="sec-desc">Things I actually use, wear, and ship out myself.</p>
                 </div>
-                <a class="link-arrow" href="#">
+                <a class="link-arrow" href="shop.html">
                     Browse everything
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -246,7 +217,7 @@
                 </a>
             </div>
 
-            <div class="sgrid" id="storeGrid"><!-- injected --></div>
+            <div class="sgrid" id="storeGrid"></div>
         </div>
     </section>
 
@@ -257,53 +228,39 @@
                 <div>
                     <p class="eyebrow">Work with me</p>
                     <h2 class="sec-title">Special <em>requests</em></h2>
-                    <p class="sec-desc">
-                        Editing, thumbnails, sponsorships or a custom gameplay request —
-                        send the brief and I'll get back to you within 48 hours.
-                    </p>
+                    <p class="sec-desc">Editing, thumbnails, sponsorships or a custom gameplay request — send the
+                        brief and I'll get back to you within 48 hours.</p>
                 </div>
             </div>
 
             <div class="hire">
                 <div class="reveal">
-                    <div class="svc">
-                        <span class="svc__num">01</span>
+                    <div class="svc"><span class="svc__num">01</span>
                         <div>
                             <h3 class="svc__title">Video editing &amp; thumbnails</h3>
-                            <p class="svc__desc">
-                                Full edit, sound design, colour grade and a scroll-stopping
-                                thumbnail. Delivered in 5–7 days.
-                            </p>
+                            <p class="svc__desc">Full edit, sound design, colour grade and a scroll-stopping
+                                thumbnail. Delivered in 5–7 days.</p>
                         </div>
                     </div>
-                    <div class="svc">
-                        <span class="svc__num">02</span>
+                    <div class="svc"><span class="svc__num">02</span>
                         <div>
                             <h3 class="svc__title">Sponsorships &amp; brand deals</h3>
-                            <p class="svc__desc">
-                                Integrated segments, dedicated videos or shorts packages.
-                                Media kit available on request.
-                            </p>
+                            <p class="svc__desc">Integrated segments, dedicated videos or shorts packages. Media
+                                kit available on request.</p>
                         </div>
                     </div>
-                    <div class="svc">
-                        <span class="svc__num">03</span>
+                    <div class="svc"><span class="svc__num">03</span>
                         <div>
                             <h3 class="svc__title">Custom gameplay requests</h3>
-                            <p class="svc__desc">
-                                Want me to play a specific game, challenge or mod? Drop the
-                                request and I'll add it to the queue.
-                            </p>
+                            <p class="svc__desc">Want me to play a specific game, challenge or mod? Drop the
+                                request and I'll add it to the queue.</p>
                         </div>
                     </div>
-                    <div class="svc">
-                        <span class="svc__num">04</span>
+                    <div class="svc"><span class="svc__num">04</span>
                         <div>
                             <h3 class="svc__title">Co-op &amp; collabs</h3>
-                            <p class="svc__desc">
-                                Creator collabs, podcasts and community lobbies. Open to
-                                most platforms and genres.
-                            </p>
+                            <p class="svc__desc">Creator collabs, podcasts and community lobbies. Open to most
+                                platforms and genres.</p>
                         </div>
                     </div>
                 </div>
@@ -311,19 +268,12 @@
                 <form class="form reveal" id="requestForm" novalidate>
                     <h3 class="form__title">Send a request</h3>
                     <p class="form__note">All fields marked * are required.</p>
-
                     <div class="field-row">
-                        <div class="field">
-                            <label for="name">Name *</label>
-                            <input id="name" name="name" type="text" placeholder="Your name" required />
-                        </div>
-                        <div class="field">
-                            <label for="email">Email *</label>
-                            <input id="email" name="email" type="email" placeholder="you@email.com"
-                                required />
-                        </div>
+                        <div class="field"><label for="name">Name *</label><input id="name" name="name"
+                                type="text" placeholder="Your name" required></div>
+                        <div class="field"><label for="email">Email *</label><input id="email"
+                                name="email" type="email" placeholder="you@email.com" required></div>
                     </div>
-
                     <div class="field">
                         <label for="type">Request type *</label>
                         <select id="type" name="type" required>
@@ -335,20 +285,12 @@
                             <option>Something else</option>
                         </select>
                     </div>
-
-                    <div class="field">
-                        <label for="budget">Budget (optional)</label>
-                        <input id="budget" name="budget" type="text" placeholder="e.g. $500 – $1,500" />
-                    </div>
-
-                    <div class="field">
-                        <label for="message">Details *</label>
+                    <div class="field"><label for="budget">Budget (optional)</label><input id="budget"
+                            name="budget" type="text" placeholder="e.g. $500 – $1,500"></div>
+                    <div class="field"><label for="message">Details *</label>
                         <textarea id="message" name="message" placeholder="Tell me about the project…" required></textarea>
                     </div>
-
-                    <button class="btn btn--primary" type="submit">
-                        Submit request
-                    </button>
+                    <button class="btn btn--primary" type="submit">Submit request</button>
                 </form>
             </div>
         </div>

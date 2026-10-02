@@ -1,0 +1,170 @@
+/* =========================================================
+   BLOG / JOURNAL — archive grid + reading layout
+   ========================================================= */
+
+/* ---------- CATEGORY BADGE COLORS ---------- */
+.bcard__cat[data-cat="patch-notes"] {
+    background: var(--accent);
+    color: #fff;
+}
+.bcard__cat[data-cat="opinion"] {
+    background: var(--violet);
+    color: #fff;
+}
+.bcard__cat[data-cat="guides"] {
+    background: var(--zap);
+    color: var(--on-zap);
+}
+.bcard__cat[data-cat="behind-the-scenes"] {
+    background: var(--ink-solid);
+    color: var(--ink-solid-fg);
+}
+.bcard__cat[data-cat="news"] {
+    background: var(--sky);
+    color: #0a1520;
+}
+
+/* ---------- BLOG GRID ---------- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: clamp(20px, 2.6vw, 32px);
+}
+.blog-grid .bcard {
+    cursor: pointer;
+}
+.blog-grid .bcard.hide {
+    display: none;
+}
+
+/* Blog card links wrap the whole card */
+.blog-grid .bcard a {
+    display: block;
+    color: inherit;
+}
+
+/* =========================================================
+   POST PAGE — article reading layout
+   ========================================================= */
+.post-head {
+    padding: calc(var(--nav-h) + clamp(40px, 7vw, 72px)) 0
+        clamp(24px, 4vw, 40px);
+}
+.post-head__inner {
+    max-width: 760px;
+    margin-inline: auto;
+}
+.post-cat {
+    display: inline-block;
+    padding: 0.3rem 0.72rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+.post-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+    margin-bottom: 1.2rem;
+}
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.post-meta i {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--muted);
+    font-style: normal;
+}
+
+.post-hero {
+    max-width: 1080px;
+    margin: 0 auto clamp(40px, 5vw, 64px);
+    aspect-ratio: 21/9;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--cream-2);
+}
+.post-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------- POST FOOTER ---------- */
+.post-foot {
+    max-width: 720px;
+    margin: clamp(48px, 6vw, 80px) auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+}
+.post-foot__label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.post-share {
+    display: flex;
+    gap: 0.5rem;
+}
+.post-share a {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line-2);
+    color: var(--ink-2);
+    transition: 0.3s var(--ease);
+}
+.post-share a:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+.post-share svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+/* ---------- POST CTA ---------- */
+.post-cta {
+    max-width: 720px;
+    margin: clamp(48px, 6vw, 72px) auto 0;
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: var(--r-lg);
+    background: var(--cream-2);
+    text-align: center;
+}
+.post-cta p {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    letter-spacing: -0.014em;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+}

@@ -1,0 +1,451 @@
+/* =========================================================
+   WORK WITH ME — services, process, FAQ, contact strip
+   ========================================================= */
+
+/* ---------- AVAILABILITY PILL ---------- */
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 99px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 1.4rem;
+}
+.availability i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--zap);
+    font-style: normal;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--zap) 30%, transparent);
+    animation: pulseDot 2.4s var(--ease) infinite;
+}
+@keyframes pulseDot {
+    0%,
+    100% {
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--zap) 30%, transparent);
+    }
+    50% {
+        box-shadow: 0 0 0 8px color-mix(in srgb, var(--zap) 0%, transparent);
+    }
+}
+
+/* =========================================================
+   SERVICES GRID — expanded cards
+   ========================================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(18px, 2.4vw, 26px);
+}
+
+.service-card {
+    position: relative;
+    padding: clamp(26px, 3.2vw, 38px);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 0.4s var(--ease),
+        box-shadow 0.4s var(--ease),
+        border-color 0.4s var(--ease),
+        background-color 0.5s var(--ease);
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 91, 255, 0.3);
+    box-shadow: var(--shadow);
+}
+
+.service-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+.service-card__num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+}
+.service-card__tag {
+    padding: 0.26rem 0.62rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--cream-2);
+    color: var(--ink-2);
+}
+
+.service-card__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.22rem, 2vw, 1.42rem);
+    line-height: 1.24;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+}
+.service-card__desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.service-card__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 1.8rem;
+    flex: 1;
+}
+.service-card__list li {
+    position: relative;
+    padding-left: 1.3rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+}
+.service-card__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 8px;
+    height: 2px;
+    background: var(--zap);
+    border-radius: 2px;
+}
+
+.service-card__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--line);
+}
+.service-card__price {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.008em;
+    color: var(--ink);
+}
+.service-card__price small {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+/* =========================================================
+   PROCESS — horizontal step timeline
+   ========================================================= */
+.process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+    position: relative;
+}
+@media (max-width: 820px) {
+    .process {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 520px) {
+    .process {
+        grid-template-columns: 1fr;
+    }
+}
+
+.process-step {
+    position: relative;
+    padding: 1.6rem 1.2rem 1.4rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    transition:
+        transform 0.35s var(--ease),
+        box-shadow 0.35s var(--ease);
+}
+.process-step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.process-step__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.process-step__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    letter-spacing: -0.014em;
+    margin-bottom: 0.4rem;
+}
+.process-step__desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+/* =========================================================
+   BRIEF + FORM SECTION — two-column
+   ========================================================= */
+.brief {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(30px, 5vw, 72px);
+    align-items: start;
+}
+@media (max-width: 980px) {
+    .brief {
+        grid-template-columns: 1fr;
+    }
+}
+
+.brief__info h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.9rem;
+}
+.brief__info > p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.72;
+    margin-bottom: 1.8rem;
+}
+
+.brief__block {
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--line);
+}
+.brief__block:last-child {
+    border-bottom: 1px solid var(--line);
+}
+.brief__label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.7rem;
+    display: block;
+}
+.brief__block ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.brief__block li {
+    position: relative;
+    padding-left: 1.3rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+}
+.brief__block li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   FAQ — native <details> accordion
+   ========================================================= */
+.faq {
+    max-width: 780px;
+    margin-inline: auto;
+}
+.faq details {
+    border-bottom: 1px solid var(--line);
+}
+.faq details:first-of-type {
+    border-top: 1px solid var(--line);
+}
+
+.faq summary {
+    padding: 1.5rem 2.6rem 1.5rem 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.12rem);
+    line-height: 1.4;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    transition: color 0.25s;
+}
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+.faq summary:hover {
+    color: var(--accent);
+}
+
+.faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--muted);
+    transition:
+        transform 0.3s var(--ease),
+        color 0.25s;
+}
+.faq details[open] summary::after {
+    content: "−";
+    color: var(--accent);
+}
+.faq details[open] summary {
+    color: var(--accent);
+}
+
+.faq details > p {
+    padding: 0 3.6rem 1.6rem 0;
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.75;
+    animation: fadeIn 0.35s var(--ease);
+}
+.faq details > p + p {
+    margin-top: 0.9em;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   CONTACT STRIP — 3 alternatives
+   ========================================================= */
+.contact-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(14px, 2vw, 20px);
+    margin-top: clamp(40px, 5vw, 64px);
+}
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.3rem 1.4rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    text-decoration: none;
+    color: inherit;
+    transition:
+        transform 0.3s var(--ease),
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+.contact-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+}
+.contact-card__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    transition:
+        background 0.3s,
+        color 0.3s;
+}
+.contact-card:hover .contact-card__icon {
+    background: var(--accent);
+    color: #fff;
+}
+.contact-card__icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.contact-card__body {
+    display: flex;
+    flex-direction: column;
+}
+.contact-card__label {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+}
+.contact-card__value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.98rem;
+    letter-spacing: -0.01em;
+}

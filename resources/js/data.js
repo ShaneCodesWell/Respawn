@@ -91,25 +91,33 @@ const POSTS = [
     {
         feature: true,
         cat: "Patch Notes",
-        date: "Mar 14, 2026",
-        title:
-            "The Big Update Changed Everything — Here's What Actually Matters",
-        excerpt:
-            "The new season dropped and it rewrote half the meta. I spent 40 hours testing builds so you don't have to. Here's the short version, plus the full breakdown over on the channel.",
+        date: "Mar 08, 2026",
+        dateRaw: 20260308,
+        title: "The Big Update Changed Everything — Here's What Actually Matters",
+        excerpt: "The new season dropped and it rewrote half the meta. ...",
         read: "8 min read",
-        img: "Images/idris-elba-as-7680x4320-13354.jpg",
+        url: "/blog/the-big-update",
+        img: "/Images/idris-elba-as-7680x4320-13354.jpg",
     },
     {
-        img: "Images/forza-horizon-6-3840x2160-26401.jpg",
+        cat: "Opinion",
+        date: "Jan 13, 2026",
+        dateRaw: 20260113,
+        title: "In Defense of Short Games",
+        excerpt: "Not every game needs 100 hours of content. ...",
+        read: "4 min read",
+        url: "/blog/in-defense-of-short-games",
+        img: "/Images/marvels-wolverine-3840x2160-24184.jpg",
     },
     {
         cat: "Behind the Scenes",
         date: "Mar 02, 2026",
+        dateRaw: 20260302,
         title: "How I Edit a Full Video in Six Hours",
-        excerpt:
-            "My complete workflow, from raw capture to final export — plugins, presets and all.",
+        excerpt: "My complete workflow, from raw capture to final export — plugins, presets and all.",
         read: "6 min read",
-        img: "Images/cyclops-season-8-5120x2880-26863.jpg",
+        url: "/blog/how-i-edit-a-full-video",
+        img: "/Images/cyclops-season-8-5120x2880-26863.jpg",
     },
 ];
 

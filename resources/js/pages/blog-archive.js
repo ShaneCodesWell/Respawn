@@ -56,13 +56,13 @@ import { POSTS, fallback } from "../data.js";
     }
 
     /* ---------- CARD MARKUP ---------- */
-    function cardHTML(p) {
+    function cardHTML(p, i) {
         return `
       <article class="card bcard reveal ${p.feature ? "bcard--feature" : ""}"
                data-cat="${slug(p.cat)}">
         <a href="${p.url}" aria-label="Read ${p.title}">
           <div class="bcard__art">
-            <img src="${p.img}" alt="" loading="lazy">
+            <img data-blog-img="${i}" src="${p.img}" alt="" loading="lazy">
             <span class="bcard__cat" data-cat="${slug(p.cat)}">${p.cat}</span>
           </div>
           <div class="bcard__body">
@@ -155,7 +155,7 @@ import { POSTS, fallback } from "../data.js";
 
         if (newItems.length) {
             const tmp = document.createElement("div");
-            tmp.innerHTML = newItems.map(cardHTML).join("");
+            tmp.innerHTML = newItems.map((p, i) => cardHTML(p, prev + i)).join("");
             while (tmp.firstChild) grid.appendChild(tmp.firstChild);
             wireImages(grid);
             revealNew(grid);

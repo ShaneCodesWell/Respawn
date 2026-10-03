@@ -11,7 +11,7 @@
                 <div class="carousel__track" id="heroTrack">
 
                     <article class="slide" data-slide>
-                        <img src="https://picsum.photos/seed/respawn-hero-1/2400/1400"
+                        <img src="{{ asset('images/Jason_and_Lucia_02.jpg') }}"
                             alt="Wide landscape at golden hour">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
@@ -30,7 +30,7 @@
                     </article>
 
                     <article class="slide" data-slide>
-                        <img src="https://picsum.photos/seed/respawn-hero-2/2400/1400" alt="Misty forest at dawn">
+                        <img src="{{ asset('images/assassins-creed-3840x2160-26420.jpg') }}" alt="Misty forest at dawn">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">
@@ -48,7 +48,7 @@
                     </article>
 
                     <article class="slide" data-slide>
-                        <img src="https://picsum.photos/seed/respawn-hero-3/2400/1400" alt="City skyline at night">
+                        <img src="{{ asset('images/cloud-strife-buster-3840x2160-27195.jpg') }}" alt="City skyline at night">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">

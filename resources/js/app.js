@@ -20,11 +20,11 @@ switch (page) {
         import('./pages/shorts-archive.js');
         break;
 
-    case 'blog-archive':
+    case 'blog': 
         import('./pages/blog-archive.js');
         break;
 
-    case 'shop-archive':
+    case 'shop':
         import('./pages/shop-archive.js');
         break;
 

@@ -1,6 +1,6 @@
 <x-layouts.app page="blog">
     @push('styles')
-        @vite('resources/css/blog.css')
+        @vite(['resources/css/archive.css', 'resources/css/blog.css'])
     @endpush
     <!-- ================= PAGE HEAD ================= -->
     <section class="page-head">

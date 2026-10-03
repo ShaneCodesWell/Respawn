@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app page="home">
     @push('styles')
         @vite('resources/css/home.css')
     @endpush
@@ -22,7 +22,7 @@
                                 <p class="slide__sub">Long-form gameplay, honest reviews and the kind of sessions
                                     that run until the sun comes up. Pull up a chair.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="videos.html">Watch the latest</a>
+                                    <a class="btn btn--light" href="{{ route('videos.index') }}">Watch the latest</a>
                                     <a class="btn btn--outline-light" href="#" data-yt>YouTube channel</a>
                                 </div>
                             </div>
@@ -40,8 +40,8 @@
                                 <p class="slide__sub">Quick clips, funny moments and clutch plays. New shorts land
                                     every single day — perfect with a coffee.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="shorts.html">Browse shorts</a>
-                                    <a class="btn btn--outline-light" href="work-with-me.html">Request a clip</a>
+                                    <a class="btn btn--light" href="{{ route('shorts.index') }}">Browse shorts</a>
+                                    <a class="btn btn--outline-light" href="{{ route('work-with-me.index') }}">Request a clip</a>
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                                 <p class="slide__sub">Editing, thumbnails, sponsorships or a custom gameplay
                                     request — send the brief and I'll reply within 48 hours.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="work-with-me.html">Start a request</a>
-                                    <a class="btn btn--outline-light" href="shop.html">Visit the shop</a>
+                                    <a class="btn btn--light" href="{{ route('work-with-me.index') }}">Start a request</a>
+                                    <a class="btn btn--outline-light" href="{{ route('shop.index') }}">Visit the shop</a>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                     <p class="sec-desc">Long-form gameplay, reviews and deep dives. Tap any card to watch it right
                         here.</p>
                 </div>
-                <a class="link-arrow" href="videos.html">
+                <a class="link-arrow" href="{{ route('videos.index') }}">
                     All videos on YouTube
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -134,7 +134,7 @@
             <div class="filters reveal" id="videoFilters">
                 <button class="chip active" data-filter="all">All</button>
                 <button class="chip" data-filter="letsplay">Let's Play</button>
-                <button class="chip" data-filter="review">Reviews</button>
+                <button class="chip" data-filter="Blind Retrospective">Blind Retrospective</button>
                 <button class="chip" data-filter="highlight">Highlights</button>
                 <button class="chip" data-filter="guide">Guides</button>
             </div>
@@ -153,7 +153,7 @@
                     <p class="sec-desc">A minute or less. Slide through with the arrows, or swipe on mobile. Tap
                         any card to play.</p>
                 </div>
-                <a class="link-arrow" href="shorts.html">
+                <a class="link-arrow" href="{{ route('shorts.index') }}">
                     More shorts
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +189,7 @@
                     <h2 class="sec-title">Notes, thoughts &amp; <em>patch talk</em></h2>
                     <p class="sec-desc">The stories behind the videos — and the opinions nobody asked for.</p>
                 </div>
-                <a class="link-arrow" href="blog.html">
+                <a class="link-arrow" href="{{ route('blog.index') }}">
                     All articles
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -211,7 +211,7 @@
                     <h2 class="sec-title">Merch &amp; <em>digital goods</em></h2>
                     <p class="sec-desc">Things I actually use, wear, and ship out myself.</p>
                 </div>
-                <a class="link-arrow" href="shop.html">
+                <a class="link-arrow" href="{{ route('shop.index') }}">
                     Browse everything
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">

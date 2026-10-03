@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app page="blog">
     @push('styles')
         @vite('resources/css/blog.css')
     @endpush

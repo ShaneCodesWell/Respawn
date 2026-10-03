@@ -1,3 +1,4 @@
+import { CHANNEL_URL } from './data.js';
 /* =========================================================
    SHARED — behaviour used across every page
    Nav, theme, modal, toast, reveal, forms, channel links

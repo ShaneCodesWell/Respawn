@@ -1,6 +1,8 @@
+import { SHORTS, ytThumbQ, fallback } from "../data.js";
+
 /* =========================================================
    SHORTS RAIL — render + coverflow + floating arrows
-   Used on: index.html, shorts.html
+   Used on: home and shorts archive pages
    ========================================================= */
 (function shortsRail() {
     const rail = document.getElementById("shortsRail");

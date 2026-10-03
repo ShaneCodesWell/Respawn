@@ -1,6 +1,7 @@
+import { POSTS, withFallback } from "../data.js";
 /* =========================================================
    BLOG GRID — render
-   Used on: index.html, blog.html
+   Used on: home and blog pages
    ========================================================= */
 (function blogGrid() {
     const grid = document.getElementById("blogGrid");

@@ -1,6 +1,7 @@
+import { VIDEOS, ytThumb, ytThumbQ, fallback } from "../data.js";
 /* =========================================================
    VIDEO GRID — render, filters, search, sort, pagination
-   Used on: index.html (limited to 6), videos.html (full)
+   Used on: home and videos archive pages
    ========================================================= */
 (function videoGrid() {
     const grid = document.getElementById("videoGrid");

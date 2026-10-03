@@ -1,5 +1,6 @@
-<x-layouts.app>
+<x-layouts.app page="shorts">
     @push('styles')
+        @vite('resources/css/archive.css')
         @vite('resources/css/shorts.css')
     @endpush
     <!-- ================= PAGE HEAD ================= -->

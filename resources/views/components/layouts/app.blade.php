@@ -30,7 +30,7 @@
     @stack('styles')
 </head>
 
-<body>
+<body data-page="{{ $page ?? '' }}">
     <div class="scanlines"></div>
 
     <!-- ================= NAV ================= -->

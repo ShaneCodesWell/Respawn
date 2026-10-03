@@ -1,22 +1,23 @@
+import { POSTS, fallback } from "../data.js";
 /* =========================================================
-   SHOP ARCHIVE — grid, filters, search, sort, pagination
-   Used on: shop.html
+   BLOG ARCHIVE — grid, filters, search, sort, pagination
+   Used on: blog page
    ========================================================= */
-(function shopArchive() {
-    const grid = document.getElementById("shopGrid");
+(function blogArchive() {
+    const grid = document.getElementById("blogGrid");
     if (!grid) return;
 
-    const filtersEl = document.getElementById("shopFilters");
-    const searchEl = document.getElementById("shopSearch");
-    const sortEl = document.getElementById("shopSort");
-    const loadMoreWrap = document.getElementById("shopLoadMoreWrap");
-    const loadMoreBtn = document.getElementById("shopLoadMoreBtn");
-    const loadMoreCount = document.getElementById("shopLoadMoreCount");
-    const emptyState = document.getElementById("shopEmptyState");
-    const clearFilters = document.getElementById("shopClearFilters");
-    const totalCount = document.getElementById("shopTotalCount");
+    const filtersEl = document.getElementById("blogFilters");
+    const searchEl = document.getElementById("blogSearch");
+    const sortEl = document.getElementById("blogSort");
+    const loadMoreWrap = document.getElementById("blogLoadMoreWrap");
+    const loadMoreBtn = document.getElementById("blogLoadMoreBtn");
+    const loadMoreCount = document.getElementById("blogLoadMoreCount");
+    const emptyState = document.getElementById("blogEmptyState");
+    const clearFilters = document.getElementById("blogClearFilters");
+    const totalCount = document.getElementById("blogTotalCount");
 
-    const PAGE_SIZE = parseInt(grid.dataset.limit, 10) || 8;
+    const PAGE_SIZE = parseInt(grid.dataset.limit, 10) || 9;
     const HAS_PAGING = !!loadMoreBtn;
 
     let activeCat = "all";
@@ -24,28 +25,31 @@
     let sortKey = "new";
     let visible = PAGE_SIZE;
 
+    const slug = str => str.toLowerCase().replace(/\s+/g, "-");
+
     /* ---------- FILTER + SORT ---------- */
     function getList() {
-        let list = PRODUCTS.slice();
+        let list = POSTS.slice();
 
         if (activeCat !== "all") {
-            list = list.filter(p => p.cat === activeCat);
+            list = list.filter(p => slug(p.cat) === activeCat);
         }
 
         if (searchTerm) {
             const q = searchTerm.toLowerCase();
             list = list.filter(p =>
-                p.name.toLowerCase().includes(q) ||
-                p.sub.toLowerCase().includes(q)
+                p.title.toLowerCase().includes(q) ||
+                p.excerpt.toLowerCase().includes(q) ||
+                p.cat.toLowerCase().includes(q)
             );
         }
 
-        if (sortKey === "price-asc") {
-            list.sort((a, b) => a.priceRaw - b.priceRaw);
-        } else if (sortKey === "price-desc") {
-            list.sort((a, b) => b.priceRaw - a.priceRaw);
+        if (sortKey === "old") {
+            list.sort((a, b) => (a.dateRaw || 0) - (b.dateRaw || 0));
         } else if (sortKey === "az") {
-            list.sort((a, b) => a.name.localeCompare(b.name));
+            list.sort((a, b) => a.title.localeCompare(b.title));
+        } else {
+            list.sort((a, b) => (b.dateRaw || 0) - (a.dateRaw || 0));
         }
 
         return list;
@@ -54,19 +58,20 @@
     /* ---------- CARD MARKUP ---------- */
     function cardHTML(p) {
         return `
-      <article class="card pcard reveal" data-cat="${p.cat}">
-        <a href="${p.url}" aria-label="View ${p.name}">
-          <div class="pcard__art">
+      <article class="card bcard reveal ${p.feature ? "bcard--feature" : ""}"
+               data-cat="${slug(p.cat)}">
+        <a href="${p.url}" aria-label="Read ${p.title}">
+          <div class="bcard__art">
             <img src="${p.img}" alt="" loading="lazy">
-            ${p.badge ? `<span class="pcard__badge">${p.badge}</span>` : ""}
-            <span class="pcard__glyph">${p.glyph}</span>
+            <span class="bcard__cat" data-cat="${slug(p.cat)}">${p.cat}</span>
           </div>
-          <div class="pcard__body">
-            <h3 class="pcard__name">${p.name}</h3>
-            <p class="pcard__sub">${p.sub}</p>
-            <div class="pcard__row">
-              <span class="pcard__price">${p.price}</span>
-              <span class="btn btn--soft btn--sm" data-cart="${p.name}">Add</span>
+          <div class="bcard__body">
+            <span class="bcard__date">${p.date}</span>
+            <h3 class="bcard__title">${p.title}</h3>
+            <p class="bcard__excerpt">${p.excerpt}</p>
+            <div class="bcard__foot">
+              <span>${p.read}</span>
+              <span>Read →</span>
             </div>
           </div>
         </a>
@@ -75,11 +80,10 @@
 
     /* ---------- IMAGE FALLBACK ---------- */
     function wireImages(scope) {
-        scope.querySelectorAll("[data-shop-img]:not([data-wired])").forEach(img => {
-            img.dataset.wired = "1";
+        scope.querySelectorAll("[data-blog-img]").forEach(img => {
             img.addEventListener("error", function h() {
                 img.removeEventListener("error", h);
-                img.src = fallback("rf-shop-" + img.dataset.shopImg, 600, 600);
+                img.src = fallback("rf-blog-" + img.dataset.blogImg, 900, 560);
             });
         });
     }
@@ -90,7 +94,7 @@
         revealObs = new IntersectionObserver((entries, o) => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.transitionDelay = `${Math.min(i * 60, 300)}ms`;
+                    entry.target.style.transitionDelay = `${Math.min(i * 70, 340)}ms`;
                     entry.target.classList.add("in");
                     o.unobserve(entry.target);
                 }
@@ -107,7 +111,7 @@
 
     /* ---------- UI ---------- */
     function updateTotal() {
-        if (totalCount) totalCount.textContent = PRODUCTS.length;
+        if (totalCount) totalCount.textContent = POSTS.length;
     }
     function updateEmpty(filteredLength) {
         if (!emptyState) return;
@@ -123,7 +127,7 @@
             loadMoreWrap.hidden = false;
             if (loadMoreCount) {
                 loadMoreCount.innerHTML =
-                    `<b>${shownLength}</b> of <b>${filteredLength}</b> products`;
+                    `<b>${shownLength}</b> of <b>${filteredLength}</b> articles`;
             }
         }
     }

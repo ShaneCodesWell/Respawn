@@ -1,6 +1,7 @@
+import { PRODUCTS, withFallback } from "../data.js";
 /* =========================================================
    STORE GRID — render
-   Used on: index.html, shop.html
+   Used on: home and shop pages
    ========================================================= */
 (function storeGrid() {
     const grid = document.getElementById("storeGrid");

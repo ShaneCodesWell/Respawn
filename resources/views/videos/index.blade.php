@@ -1,6 +1,6 @@
-<x-layouts.app>
+<x-layouts.app page="videos">
     @push('styles')
-        @vite('resources/css/videos.css')
+        @vite('resources/css/archive.css')
     @endpush
     <!-- ================= PAGE HEAD ================= -->
     <section class="page-head">

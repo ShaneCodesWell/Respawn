@@ -1,6 +1,7 @@
+import { PRODUCTS } from "../data.js";
 /* =========================================================
    SHOP PRODUCT — gallery, sizes, qty, related products
-   Used on: shop/*.html
+   Used on: shop/*
    ========================================================= */
 (function shopProduct() {
 
@@ -75,7 +76,7 @@
 
         relatedGrid.innerHTML = slice.map(p => `
       <article class="card pcard reveal">
-        <a href="../${p.url}" aria-label="View ${p.name}">
+        <a href="${p.url}" aria-label="View ${p.name}">
           <div class="pcard__art">
             <img src="${p.img}" alt="" loading="lazy">
             ${p.badge ? `<span class="pcard__badge">${p.badge}</span>` : ""}

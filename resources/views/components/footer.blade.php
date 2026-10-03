@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer__top">
             <div>
-                <a href="index.html" class="brand">
+                <a href="{{ route('home.index') }}" class="brand">
                     <span class="brand__mark">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1" />
@@ -39,8 +39,8 @@
             <div>
                 <h4 class="footer__head">Watch</h4>
                 <ul class="footer__list">
-                    <li><a href="videos.html">Latest videos</a></li>
-                    <li><a href="shorts.html">Shorts</a></li>
+                    <li><a href="{{ route('videos.index') }}">Latest videos</a></li>
+                    <li><a href="{{ route('shorts.index') }}">Shorts</a></li>
                     <li><a href="#">Playlists</a></li>
                     <li><a href="#">Livestreams</a></li>
                 </ul>

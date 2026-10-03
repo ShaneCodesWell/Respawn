@@ -53,12 +53,12 @@ import { PRODUCTS, fallback } from "../data.js";
     }
 
     /* ---------- CARD MARKUP ---------- */
-    function cardHTML(p) {
+    function cardHTML(p, i) {
         return `
       <article class="card pcard reveal" data-cat="${p.cat}">
         <a href="${p.url}" aria-label="View ${p.name}">
           <div class="pcard__art">
-            <img src="${p.img}" alt="" loading="lazy">
+            <img data-shop-img="${i}" src="${p.img}" alt="" loading="lazy">
             ${p.badge ? `<span class="pcard__badge">${p.badge}</span>` : ""}
             <span class="pcard__glyph">${p.glyph}</span>
           </div>
@@ -152,7 +152,7 @@ import { PRODUCTS, fallback } from "../data.js";
 
         if (newItems.length) {
             const tmp = document.createElement("div");
-            tmp.innerHTML = newItems.map(cardHTML).join("");
+            tmp.innerHTML = newItems.map((p, i) => cardHTML(p, prev + i)).join("");
             while (tmp.firstChild) grid.appendChild(tmp.firstChild);
             wireImages(grid);
             revealNew(grid);

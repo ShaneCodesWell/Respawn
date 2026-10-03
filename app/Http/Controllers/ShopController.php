@@ -11,4 +11,9 @@ class ShopController extends Controller
     {
         return view('shop.index');
     }
+
+    public function show(string $slug): View
+    {
+        return view('shop.show', compact('slug'));
+    }
 }

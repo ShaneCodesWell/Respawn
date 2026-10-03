@@ -191,7 +191,10 @@ if (newsForm) {
 /* ---------- CART BUTTON FEEDBACK ---------- */
 document.addEventListener("click", e => {
     const btn = e.target.closest("[data-cart]");
-    if (btn) showToast(`<span><strong>Added:</strong> ${btn.dataset.cart}</span>`);
+    if (btn) {
+        e.preventDefault();   // <- add this line
+        showToast(`<span><strong>Added:</strong> ${btn.dataset.cart}</span>`);
+    }
 });
 
 /* ---------- MISC ---------- */

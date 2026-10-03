@@ -11,6 +11,8 @@ export default defineConfig({
                 'resources/css/archive.css',
                 'resources/css/blog.css',
                 'resources/css/home.css',
+                'resources/css/prose.css',
+                'resources/css/shop.css',
                 'resources/js/app.js',
             ],
             refresh: true,

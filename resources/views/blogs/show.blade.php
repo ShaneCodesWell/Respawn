@@ -1,6 +1,6 @@
 <x-layouts.app page="blog-post">
     @push('styles')
-        @vite(['resources/css/archive.css', 'resources/css/blog.css'])
+        @vite(['resources/css/archive.css', 'resources/css/blog.css', 'resources/css/prose.css'])
     @endpush
     <!-- ================= POST HEAD ================= -->
     <article>

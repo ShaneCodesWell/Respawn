@@ -223,11 +223,18 @@
                 </a>
             </div>
 
-            <div class="bgrid">
-                @foreach ($posts as $post)
-                    <x-blog-card :post="$post" :feature="$post->is_featured" />
-                @endforeach
-            </div>
+            @if ($posts->isEmpty())
+                <div class="empty">
+                    <p>No articles yet.</p>
+                    <span>The first post is on its way. Check back soon.</span>
+                </div>
+            @else
+                <div class="bgrid">
+                    @foreach ($posts as $post)
+                        <x-blog-card :post="$post" :feature="$post->is_featured" />
+                    @endforeach
+                </div>
+            @endif
         </div>
     </section>
 
@@ -249,11 +256,18 @@
                 </a>
             </div>
 
-            <div class="sgrid">
-                @foreach ($products as $product)
-                    <x-product-card :product="$product" />
-                @endforeach
-            </div>
+            @if ($products->isEmpty())
+                <div class="empty">
+                    <p>The shop is empty for now.</p>
+                    <span>Merch and digital goods are coming. Check back soon.</span>
+                </div>
+            @else
+                <div class="sgrid">
+                    @foreach ($products as $product)
+                        <x-product-card :product="$product" />
+                    @endforeach
+                </div>
+            @endif
         </div>
     </section>
 

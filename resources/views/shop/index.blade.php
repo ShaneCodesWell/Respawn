@@ -18,54 +18,63 @@
         </div>
     </section>
 
-    <!-- ================= FILTER BAR ================= -->
-    <div class="filter-bar">
-        <div class="container filter-bar__inner" id="shopFilters">
-            <button class="chip active" data-filter="all">All</button>
-            @foreach ($types as $type)
-                <button class="chip" data-filter="{{ $type->value }}">{{ $type->getLabel() }}</button>
-            @endforeach
+    @if ($products->isNotEmpty())
+        <!-- ================= FILTER BAR ================= -->
+        <div class="filter-bar">
+            <div class="container filter-bar__inner" id="shopFilters">
+                <button class="chip active" data-filter="all">All</button>
+                @foreach ($types as $type)
+                    <button class="chip" data-filter="{{ $type->value }}">{{ $type->getLabel() }}</button>
+                @endforeach
 
-            <div class="filter-tools">
-                <label class="search" aria-label="Search products">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="11" cy="11" r="7" />
-                        <path d="m20 20-3.5-3.5" />
-                    </svg>
-                    <input id="shopSearch" type="search" placeholder="Search products…" autocomplete="off">
-                </label>
+                <div class="filter-tools">
+                    <label class="search" aria-label="Search products">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-3.5-3.5" />
+                        </svg>
+                        <input id="shopSearch" type="search" placeholder="Search products…" autocomplete="off">
+                    </label>
 
-                <div class="sort">
-                    <select id="shopSort" aria-label="Sort products">
-                        <option value="new">Featured</option>
-                        <option value="price-asc">Price: low to high</option>
-                        <option value="price-desc">Price: high to low</option>
-                        <option value="az">A–Z</option>
-                    </select>
+                    <div class="sort">
+                        <select id="shopSort" aria-label="Sort products">
+                            <option value="new">Featured</option>
+                            <option value="price-asc">Price: low to high</option>
+                            <option value="price-desc">Price: high to low</option>
+                            <option value="az">A–Z</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 
     <!-- ================= GRID ================= -->
     <section class="section section--soft videos-results">
         <div class="container">
-            <div class="shop-grid" id="shopGrid" data-limit="8">
-                @foreach ($products as $product)
-                    <x-product-card :product="$product" />
-                @endforeach
-            </div>
+            @if ($products->isEmpty())
+                <div class="empty">
+                    <p>The shop is empty for now.</p>
+                    <span>Merch and digital goods are coming. Check back soon.</span>
+                </div>
+            @else
+                <div class="shop-grid" id="shopGrid" data-limit="8">
+                    @foreach ($products as $product)
+                        <x-product-card :product="$product" />
+                    @endforeach
+                </div>
 
-            <div class="load-more-wrap" id="shopLoadMoreWrap" hidden>
-                <button class="btn btn--soft" id="shopLoadMoreBtn" type="button">Load more products</button>
-                <span class="load-more-count" id="shopLoadMoreCount"></span>
-            </div>
+                <div class="load-more-wrap" id="shopLoadMoreWrap" hidden>
+                    <button class="btn btn--soft" id="shopLoadMoreBtn" type="button">Load more products</button>
+                    <span class="load-more-count" id="shopLoadMoreCount"></span>
+                </div>
 
-            <div class="empty" id="shopEmptyState" hidden>
-                <p>No products match your filters.</p>
-                <span>Try a different category, or clear everything.</span>
-                <button class="btn btn--soft btn--sm" id="shopClearFilters" type="button">Clear filters</button>
-            </div>
+                <div class="empty" id="shopEmptyState" hidden>
+                    <p>No products match your filters.</p>
+                    <span>Try a different category, or clear everything.</span>
+                    <button class="btn btn--soft btn--sm" id="shopClearFilters" type="button">Clear filters</button>
+                </div>
+            @endif
         </div>
     </section>
 </x-layouts.app>

@@ -11,8 +11,7 @@
                 <div class="carousel__track" id="heroTrack">
 
                     <article class="slide" data-slide>
-                        <img src="{{ asset('images/Jason_and_Lucia_02.jpg') }}"
-                            alt="Wide landscape at golden hour">
+                        <img src="{{ asset('images/Jason_and_Lucia_02.jpg') }}" alt="Wide landscape at golden hour">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">
@@ -41,14 +40,16 @@
                                     every single day — perfect with a coffee.</p>
                                 <div class="slide__cta">
                                     <a class="btn btn--light" href="{{ route('shorts.index') }}">Browse shorts</a>
-                                    <a class="btn btn--outline-light" href="{{ route('work-with-me.index') }}">Request a clip</a>
+                                    <a class="btn btn--outline-light" href="{{ route('work-with-me.index') }}">Request a
+                                        clip</a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="slide" data-slide>
-                        <img src="{{ asset('images/cloud-strife-buster-3840x2160-27195.jpg') }}" alt="City skyline at night">
+                        <img src="{{ asset('images/cloud-strife-buster-3840x2160-27195.jpg') }}"
+                            alt="City skyline at night">
                         <div class="slide__scrim"></div>
                         <div class="slide__grid"></div>
                         <div class="slide__content">
@@ -58,8 +59,10 @@
                                 <p class="slide__sub">Editing, thumbnails, sponsorships or a custom gameplay
                                     request — send the brief and I'll reply within 48 hours.</p>
                                 <div class="slide__cta">
-                                    <a class="btn btn--light" href="{{ route('work-with-me.index') }}">Start a request</a>
-                                    <a class="btn btn--outline-light" href="{{ route('shop.index') }}">Visit the shop</a>
+                                    <a class="btn btn--light" href="{{ route('work-with-me.index') }}">Start a
+                                        request</a>
+                                    <a class="btn btn--outline-light" href="{{ route('shop.index') }}">Visit the
+                                        shop</a>
                                 </div>
                             </div>
                         </div>
@@ -133,13 +136,23 @@
 
             <div class="filters reveal" id="videoFilters">
                 <button class="chip active" data-filter="all">All</button>
-                <button class="chip" data-filter="letsplay">Let's Play</button>
-                <button class="chip" data-filter="Blind Retrospective">Blind Retrospective</button>
-                <button class="chip" data-filter="highlight">Highlights</button>
-                <button class="chip" data-filter="guide">Guides</button>
+                @foreach ($videoCategories as $cat)
+                    <button class="chip" data-filter="{{ $cat->value }}">{{ $cat->getLabel() }}</button>
+                @endforeach
             </div>
 
-            <div class="vgrid" id="videoGrid" data-limit="6"></div>
+            @if ($videos->isEmpty())
+                <div class="empty">
+                    <p>No videos yet.</p>
+                    <span>New uploads are on the way.</span>
+                </div>
+            @else
+                <div class="vgrid" id="videoGrid">
+                    @foreach ($videos as $video)
+                        <x-video-card :video="$video" />
+                    @endforeach
+                </div>
+            @endif
         </div>
     </section>
 
@@ -163,8 +176,20 @@
             </div>
 
             <div class="shorts-stage reveal" id="shortsStage">
-                <div class="rail" id="shortsRail" tabindex="0"
-                    aria-label="Shorts rail — use arrow keys to browse"></div>
+
+                @if ($shorts->isEmpty())
+                    <div class="empty">
+                        <p>No shorts yet.</p>
+                        <span>New drops are coming.</span>
+                    </div>
+                @else
+                    <div class="rail" id="shortsRail" tabindex="0"
+                        aria-label="Shorts rail — use arrow keys to browse">
+                        @foreach ($shorts as $short)
+                            <x-short-card :short="$short" />
+                        @endforeach
+                    </div>
+                @endif
 
                 <button class="rail-nav rail-nav--prev" id="shortsPrev" type="button" aria-label="Previous shorts">
                     <svg viewBox="0 0 24 24">
@@ -198,7 +223,11 @@
                 </a>
             </div>
 
-            <div class="bgrid" id="blogGrid"></div>
+            <div class="bgrid">
+                @foreach ($posts as $post)
+                    <x-blog-card :post="$post" :feature="$post->is_featured" />
+                @endforeach
+            </div>
         </div>
     </section>
 
@@ -220,7 +249,11 @@
                 </a>
             </div>
 
-            <div class="sgrid" id="storeGrid"></div>
+            <div class="sgrid">
+                @foreach ($products as $product)
+                    <x-product-card :product="$product" />
+                @endforeach
+            </div>
         </div>
     </section>
 

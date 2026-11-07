@@ -21,14 +21,6 @@
     <!-- ================= FILTER BAR ================= -->
     <div class="filter-bar">
         <div class="container filter-bar__inner">
-            <div class="filters" id="shortsFilters">
-                <button class="chip active" data-filter="all">All</button>
-                <button class="chip" data-filter="funny">Funny</button>
-                <button class="chip" data-filter="clutch">Clutch</button>
-                <button class="chip" data-filter="fails">Fails</button>
-                <button class="chip" data-filter="tips">Tips</button>
-            </div>
-
             <div class="filter-tools">
                 <label class="search" aria-label="Search shorts">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -52,7 +44,18 @@
     <!-- ================= GRID ================= -->
     <section class="section section--soft videos-results">
         <div class="container">
-            <div class="shorts-grid" id="shortsGrid" data-limit="12"></div>
+            @if ($shorts->isEmpty())
+                <div class="empty">
+                    <p>No shorts yet.</p>
+                    <span>New drops are coming. Check back soon.</span>
+                </div>
+            @else
+                <div class="shorts-grid" id="shortsGrid" data-limit="12">
+                    @foreach ($shorts as $short)
+                        <x-short-card :short="$short" />
+                    @endforeach
+                </div>
+            @endif
 
             <div class="load-more-wrap" id="shortsLoadMoreWrap" hidden>
                 <button class="btn btn--soft" id="shortsLoadMoreBtn" type="button">Load more shorts</button>

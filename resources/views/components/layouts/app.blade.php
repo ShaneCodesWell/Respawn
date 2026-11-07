@@ -1,3 +1,7 @@
+@props([
+    'title' => 'Respawn Forever | Shane Forever Gaming',
+    'description' => null,
+])
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +9,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0B0E14" />
-    <title>Respawn Forever | Shane Forever Gaming</title>
+    <title>{{ $title }}</title>
     <meta name="description"
-        content="Gameplay videos, shorts, blogs and custom work from Respawn Forever. Watch on YouTube." />
+        content="{{ $description ?: 'Gameplay videos, shorts, blogs and custom work from Respawn Forever. Watch on YouTube.' }}" />
     <script>
         (function() {
             try {

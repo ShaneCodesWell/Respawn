@@ -7,6 +7,7 @@
     if (!root || !track) return;
 
     const slides = [...track.querySelectorAll("[data-slide]")];
+    if (!slides.length) return;
     const dotsWrap = document.getElementById("heroDots");
     const progress = document.getElementById("heroProgress");
     const prevBtn = document.getElementById("prevBtn");

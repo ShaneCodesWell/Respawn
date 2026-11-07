@@ -1950,3 +1950,146 @@ button {
         scroll-behavior: auto;
     }
 }
+
+/* =========================================================
+   17. INNER PAGES (blog / store)
+   ========================================================= */
+.page-top {
+    padding-top: calc(var(--nav-h) + clamp(40px, 6vw, 80px));
+}
+.container--narrow {
+    width: min(780px, 90vw);
+    margin-inline: auto;
+}
+.back {
+    margin-bottom: 2rem;
+}
+.empty {
+    color: var(--muted);
+    text-align: center;
+    padding: 4rem 0;
+}
+.pager {
+    margin-top: 3rem;
+}
+
+a.bcard,
+.pcard__art {
+    color: inherit;
+}
+.pcard__name a:hover {
+    color: var(--accent);
+}
+
+.article__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+}
+.article__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.article__meta i {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--muted);
+}
+.article__hero {
+    margin: 2rem 0 2.5rem;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--cream-2);
+}
+.article__hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tailwind's preflight strips heading sizes and list markers, so restore them for rich text */
+.prose {
+    font-size: 1.06rem;
+    line-height: 1.8;
+    color: var(--ink-2);
+}
+.prose > * + * {
+    margin-top: 1.2em;
+}
+.prose h2,
+.prose h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-top: 2em;
+}
+.prose h2 { font-size: 1.7rem; }
+.prose h3 { font-size: 1.3rem; }
+.prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.prose ul { list-style: disc; padding-left: 1.4em; }
+.prose ol { list-style: decimal; padding-left: 1.4em; }
+.prose blockquote {
+    border-left: 3px solid var(--zap);
+    padding-left: 1.1rem;
+    color: var(--ink);
+    font-style: italic;
+}
+.prose img {
+    border-radius: var(--r);
+}
+.prose strong { color: var(--ink); }
+
+.pdetail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(30px, 5vw, 72px);
+    align-items: start;
+}
+@media (max-width: 860px) {
+    .pdetail { grid-template-columns: 1fr; }
+}
+.pdetail__art {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: linear-gradient(150deg, var(--cream-2), var(--art-grad-end));
+}
+.pdetail__art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pdetail__price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 1.4rem 0;
+}
+.pdetail__cta {
+    margin-bottom: 2rem;
+}
+
+
+
+/* Make the [hidden] attribute always win over display rules */
+[hidden] {
+    display: none !important;
+}

@@ -1,4 +1,3 @@
-import './data.js';
 import './shared.js';
 
 const page = document.body.dataset.page;
@@ -6,10 +5,8 @@ const page = document.body.dataset.page;
 switch (page) {
     case 'home':
         import('./pages/home.js');
-        import('./pages/videos.js');   // video grid (the file starting with import { VIDEOS... })
-        import('./pages/shorts.js');   // shorts rail (the coverflow one)
-        import('./pages/blog.js');     // home blog grid
-        import('./pages/shop.js');     // home store grid
+        import('./pages/videos.js');
+        import('./pages/shorts.js');
         break;
 
     case 'videos':
@@ -20,7 +17,7 @@ switch (page) {
         import('./pages/shorts-archive.js');
         break;
 
-    case 'blog': 
+    case 'blog':
         import('./pages/blog-archive.js');
         break;
 

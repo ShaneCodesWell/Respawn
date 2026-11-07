@@ -1,14 +1,15 @@
-<x-layouts.app page="blog">
+<x-layouts.app page="blog" title="Journal | Respawn Forever"
+    description="Notes, thoughts and patch talk — the stories behind the videos.">
     @push('styles')
         @vite(['resources/css/archive.css', 'resources/css/blog.css'])
     @endpush
+
     <!-- ================= PAGE HEAD ================= -->
     <section class="page-head">
         <div class="container">
             <p class="eyebrow">The journal</p>
             <h1 class="page-title">Notes, thoughts &amp; <em>patch talk</em></h1>
-            <p class="page-desc">Long-form takes, patch breakdowns and the stories behind the videos. No hot takes, just
-                things I actually care about.</p>
+            <p class="page-desc">Long-form takes, patch breakdowns and the stories behind the videos. No hot takes, just things I actually care about.</p>
             <div class="page-meta">
                 <span><b id="blogTotalCount">0</b> articles</span>
                 <i class="meta-dot"></i>
@@ -22,11 +23,9 @@
         <div class="container filter-bar__inner">
             <div class="filters" id="blogFilters">
                 <button class="chip active" data-filter="all">All</button>
-                <button class="chip" data-filter="patch-notes">Patch Notes</button>
-                <button class="chip" data-filter="opinion">Opinion</button>
-                <button class="chip" data-filter="guides">Guides</button>
-                <button class="chip" data-filter="behind-the-scenes">Behind the Scenes</button>
-                <button class="chip" data-filter="news">News</button>
+                @foreach ($categories as $cat)
+                    <button class="chip" data-filter="{{ \Illuminate\Support\Str::slug($cat) }}">{{ $cat }}</button>
+                @endforeach
             </div>
 
             <div class="filter-tools">
@@ -52,7 +51,11 @@
     <!-- ================= GRID ================= -->
     <section class="section section--soft videos-results">
         <div class="container">
-            <div class="blog-grid" id="blogGrid" data-limit="9"></div>
+            <div class="blog-grid" id="blogGrid" data-limit="9">
+                @foreach ($posts as $post)
+                    <x-blog-card :post="$post" :feature="$post->is_featured" />
+                @endforeach
+            </div>
 
             <div class="load-more-wrap" id="blogLoadMoreWrap" hidden>
                 <button class="btn btn--soft" id="blogLoadMoreBtn" type="button">Load more articles</button>

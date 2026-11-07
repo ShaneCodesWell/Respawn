@@ -20,13 +20,11 @@
 
     <!-- ================= FILTER BAR ================= -->
     <div class="filter-bar">
-        <div class="container filter-bar__inner">
-            <div class="filters" id="shopFilters">
-                <button class="chip active" data-filter="all">All</button>
-                <button class="chip" data-filter="apparel">Apparel</button>
-                <button class="chip" data-filter="accessories">Accessories</button>
-                <button class="chip" data-filter="digital">Digital</button>
-            </div>
+        <div class="container filter-bar__inner" id="shopFilters">
+            <button class="chip active" data-filter="all">All</button>
+            @foreach ($types as $type)
+                <button class="chip" data-filter="{{ $type->value }}">{{ $type->getLabel() }}</button>
+            @endforeach
 
             <div class="filter-tools">
                 <label class="search" aria-label="Search products">
@@ -52,7 +50,11 @@
     <!-- ================= GRID ================= -->
     <section class="section section--soft videos-results">
         <div class="container">
-            <div class="shop-grid" id="shopGrid" data-limit="8"></div>
+            <div class="shop-grid" id="shopGrid" data-limit="8">
+                @foreach ($products as $product)
+                    <x-product-card :product="$product" />
+                @endforeach
+            </div>
 
             <div class="load-more-wrap" id="shopLoadMoreWrap" hidden>
                 <button class="btn btn--soft" id="shopLoadMoreBtn" type="button">Load more products</button>

@@ -1,4 +1,5 @@
-<x-layouts.app>
+<x-layouts.app page="work-with-me" title="Work With Me | Respawn Forever"
+    description="Editing, thumbnails, sponsorships and custom gameplay requests.">
     @push('styles')
         @vite('resources/css/work-with-me.css')
     @endpush

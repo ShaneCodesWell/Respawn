@@ -14,6 +14,8 @@ export default defineConfig({
                 'resources/css/prose.css',
                 'resources/css/shop.css',
                 'resources/js/app.js',
+                'resources/css/shorts.css',
+                'resources/css/work-with-me.css',
             ],
             refresh: true,
             fonts: [

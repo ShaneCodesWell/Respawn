@@ -22,10 +22,9 @@
         <div class="container filter-bar__inner">
             <div class="filters" id="videoFilters">
                 <button class="chip active" data-filter="all">All</button>
-                <button class="chip" data-filter="letsplay">Let's Play</button>
-                <button class="chip" data-filter="review">Reviews</button>
-                <button class="chip" data-filter="highlight">Highlights</button>
-                <button class="chip" data-filter="guide">Guides</button>
+                @foreach ($videoCategories as $cat)
+                    <button class="chip" data-filter="{{ $cat->value }}">{{ $cat->getLabel() }}</button>
+                @endforeach
             </div>
 
             <div class="filter-tools">
@@ -51,7 +50,18 @@
     <!-- ================= VIDEO GRID ================= -->
     <section class="section section--soft videos-results">
         <div class="container">
-            <div class="vgrid" id="videoGrid" data-limit="9"></div>
+            @if ($videos->isEmpty())
+                <div class="empty">
+                    <p>No videos yet.</p>
+                    <span>New uploads are on the way. Check back soon.</span>
+                </div>
+            @else
+                <div class="vgrid" id="videoGrid" data-limit="9">
+                    @foreach ($videos as $video)
+                        <x-video-card :video="$video" />
+                    @endforeach
+                </div>
+            @endif
 
             <div class="load-more-wrap" id="loadMoreWrap" hidden>
                 <button class="btn btn--soft" id="loadMoreBtn" type="button">Load more videos</button>

@@ -50,14 +50,11 @@ import { CHANNEL_URL } from './data.js';
 
     if (nav && navMenu && navToggle) {
         function updateNav() {
-            const heroEl = document.getElementById("home");
-
-            /* No hero on this page → nav is always in the solid state */
             if (!heroEl) {
                 nav.classList.add("is-stuck");
                 return;
             }
-
+            
             const threshold = Math.max(heroEl.offsetHeight - 160, 120);
             nav.classList.toggle("is-stuck", window.scrollY > threshold);
         }
@@ -85,7 +82,7 @@ import { CHANNEL_URL } from './data.js';
                 if (e.isIntersecting) {
                     navLinks.forEach(l =>
                         l.classList.toggle("active",
-                            l.getAttribute("href") === "#" + e.target.id));
+                            l.hash === "#" + e.target.id));
                 }
             });
         }, { rootMargin: "-45% 0px -50% 0px" });
@@ -205,4 +202,14 @@ document.querySelectorAll("[data-yt]").forEach(a => {
     a.href = CHANNEL_URL;
     a.target = "_blank";
     a.rel = "noopener";
+});
+
+/* ---------- COPY LINK ---------- */
+document.addEventListener("click", e => {
+    const btn = e.target.closest("[data-copy-link]");
+    if (!btn) return;
+    e.preventDefault();
+    navigator.clipboard?.writeText(window.location.href).then(() =>
+        showToast("<span><strong>Link copied</strong></span>")
+    );
 });

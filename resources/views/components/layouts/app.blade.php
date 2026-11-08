@@ -1,6 +1,7 @@
 @props([
     'title' => 'Respawn Forever | Shane Forever Gaming',
     'description' => null,
+    'page' => '',
 ])
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@
     @stack('styles')
 </head>
 
-<body data-page="{{ $page ?? '' }}">
+<body data-page="{{ $page }}">
     <div class="scanlines"></div>
 
     <!-- ================= NAV ================= -->

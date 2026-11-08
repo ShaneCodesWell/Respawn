@@ -35,6 +35,7 @@ class PostForm
 
                 SpatieMediaLibraryFileUpload::make('featured_image')
                     ->collection('featured_image')
+                    ->disk('public')
                     ->image()
                     ->required(),
 

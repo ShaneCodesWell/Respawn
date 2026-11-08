@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Str;
 
 class HeroSlide extends Model implements HasMedia
 {
@@ -30,5 +32,19 @@ class HeroSlide extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('image')->singleFile();
+    }
+
+    protected function titleHtml(): Attribute
+    {
+        return Attribute::get(function () {
+            $title = e($this->title);
+            $highlight = e($this->title_highlight ?? '');
+
+            if ($highlight === '' || ! str_contains($title, $highlight)) {
+                return $title;
+            }
+
+            return Str::replaceFirst($highlight, '<em>' . $highlight . '</em>', $title);
+        });
     }
 }

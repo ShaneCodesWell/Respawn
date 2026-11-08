@@ -33,6 +33,7 @@ class ProductForm
 
                 SpatieMediaLibraryFileUpload::make('image')
                     ->collection('image')
+                    ->disk('public')
                     ->image(),
 
                 TextInput::make('price')

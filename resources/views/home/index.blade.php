@@ -9,65 +9,53 @@
         <div class="carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Featured">
             <div class="carousel__viewport">
                 <div class="carousel__track" id="heroTrack">
+                    @forelse ($slides as $slide)
+                        @php $slideImg = $slide->getFirstMediaUrl('image'); @endphp
 
-                    <article class="slide" data-slide>
-                        <img src="{{ asset('images/Jason_and_Lucia_02.jpg') }}" alt="Wide landscape at golden hour">
-                        <div class="slide__scrim"></div>
-                        <div class="slide__grid"></div>
-                        <div class="slide__content">
-                            <div class="slide__inner">
-                                <p class="slide__eyebrow"><i></i> New video · every Friday</p>
-                                <h2 class="hero__title">Some worlds you never <em>really</em> leave.</h2>
-                                <p class="slide__sub">Long-form gameplay, honest reviews and the kind of sessions
-                                    that run until the sun comes up. Pull up a chair.</p>
-                                <div class="slide__cta">
-                                    <a class="btn btn--light" href="{{ route('videos.index') }}">Watch the latest</a>
-                                    <a class="btn btn--outline-light" href="#" data-yt>YouTube channel</a>
+                        <article class="slide {{ $loop->first ? 'is-active' : '' }}" data-slide>
+                            @if ($slideImg)
+                                <img src="{{ $slideImg }}" alt="{{ $slide->title }}"
+                                    @if ($loop->first) fetchpriority="high" @else loading="lazy" @endif />
+                            @endif
+                            <div class="slide__scrim"></div>
+                            <div class="slide__grid"></div>
+                            <div class="slide__content">
+                                <div class="slide__inner">
+                                    @if ($slide->eyebrow)
+                                        <p class="slide__eyebrow"><i></i> {{ $slide->eyebrow }}</p>
+                                    @endif
+
+                                    <h2 class="hero__title">{!! $slide->title_html !!}</h2>
+
+                                    @if ($slide->subtitle)
+                                        <p class="slide__sub">{{ $slide->subtitle }}</p>
+                                    @endif
+
+                                    <div class="slide__cta">
+                                        @if ($slide->cta_primary_label && $slide->cta_primary_url)
+                                            <a class="btn btn--light"
+                                                href="{{ $slide->cta_primary_url }}">{{ $slide->cta_primary_label }}</a>
+                                        @endif
+                                        @if ($slide->cta_secondary_label && $slide->cta_secondary_url)
+                                            <a class="btn btn--outline-light" href="{{ $slide->cta_secondary_url }}"
+                                                @if (str_starts_with($slide->cta_secondary_url, 'http')) target="_blank" rel="noopener" @endif>{{ $slide->cta_secondary_label }}</a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </article>
-
-                    <article class="slide" data-slide>
-                        <img src="{{ asset('images/assassins-creed-3840x2160-26420.jpg') }}" alt="Misty forest at dawn">
-                        <div class="slide__scrim"></div>
-                        <div class="slide__grid"></div>
-                        <div class="slide__content">
-                            <div class="slide__inner">
-                                <p class="slide__eyebrow"><i></i> Shorts · daily drops</p>
-                                <h2 class="hero__title">Sixty seconds of <em>pure</em> chaos.</h2>
-                                <p class="slide__sub">Quick clips, funny moments and clutch plays. New shorts land
-                                    every single day — perfect with a coffee.</p>
-                                <div class="slide__cta">
-                                    <a class="btn btn--light" href="{{ route('shorts.index') }}">Browse shorts</a>
-                                    <a class="btn btn--outline-light" href="{{ route('work-with-me.index') }}">Request a
-                                        clip</a>
+                        </article>
+                    @empty
+                        <article class="slide is-active" data-slide>
+                            <div class="slide__scrim"></div>
+                            <div class="slide__content">
+                                <div class="slide__inner">
+                                    <h2 class="hero__title">Respawn <em>Forever</em></h2>
+                                    <p class="slide__sub">Gaming videos, shorts and stories. New content coming soon.
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </article>
-
-                    <article class="slide" data-slide>
-                        <img src="{{ asset('images/cloud-strife-buster-3840x2160-27195.jpg') }}"
-                            alt="City skyline at night">
-                        <div class="slide__scrim"></div>
-                        <div class="slide__grid"></div>
-                        <div class="slide__content">
-                            <div class="slide__inner">
-                                <p class="slide__eyebrow"><i></i> Commissions · open now</p>
-                                <h2 class="hero__title">Let's build something <em>worth</em> watching.</h2>
-                                <p class="slide__sub">Editing, thumbnails, sponsorships or a custom gameplay
-                                    request — send the brief and I'll reply within 48 hours.</p>
-                                <div class="slide__cta">
-                                    <a class="btn btn--light" href="{{ route('work-with-me.index') }}">Start a
-                                        request</a>
-                                    <a class="btn btn--outline-light" href="{{ route('shop.index') }}">Visit the
-                                        shop</a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
+                        </article>
+                    @endforelse
                 </div>
             </div>
 

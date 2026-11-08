@@ -3,12 +3,8 @@
         <div class="footer__top">
             <div>
                 <a href="{{ route('home.index') }}" class="brand">
-                    <span class="brand__mark">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1" />
-                            <path d="M20.8 4.2v5.2h-5.2" />
-                        </svg>
-                    </span>
+                    <img src="{{ asset('images/logos/logo_only_noglow_transparent.png') }}" alt="Respawn Forever logo"
+                        width="24" height="24" />
                     <span class="brand__text">
                         <span class="brand__name">Respawn Forever</span>
                         <span class="brand__sub">Play · Watch · Repeat</span>

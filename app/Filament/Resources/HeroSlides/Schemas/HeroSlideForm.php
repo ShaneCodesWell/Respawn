@@ -14,6 +14,7 @@ class HeroSlideForm
         return $schema->components([
             SpatieMediaLibraryFileUpload::make('image')
                 ->collection('image')
+                ->disk('public')
                 ->image()
                 ->required(),
 
